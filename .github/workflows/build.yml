@@ -79,8 +79,8 @@ jobs:
 
       - name: Install OpenWrt SDK
         run: |
-          wget ${{ matrix.target.sdk }} -O openwrt-sdk.tar.zst
-          tar --zstd -xf openwrt-sdk.tar.zst
+          wget ${{ matrix.target.sdk }}
+          tar --zstd -xf openwrt-sdk-*.tar.zst
           SDK_DIR=$(find . -maxdepth 1 -type d -name "openwrt-sdk-*" | head -n 1)
           mv -f "$SDK_DIR" openwrt-sdk
 
