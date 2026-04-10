@@ -18,7 +18,7 @@ jobs:
         run: |
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
-          sudo timedatectl set-timezone "Asia/Shanghai"
+          sudo timedatectl set-timezone "Europe/Amsterdam"
   
       - name: Check
         run: |
@@ -40,7 +40,7 @@ jobs:
           status=$(git status -s | grep -E 'netbird/Makefile' | awk '{printf " %s", $2}')
           if [ -n "${status}" ]; then
             git add netbird/Makefile
-            git commit -m "update to $package_version $(date +%Y-%m-%d" "%H:%M:%S)"
+            git commit -m "Update netbird to $package_version"
             git push -f
             echo "update=true" >>$GITHUB_ENV
           else
