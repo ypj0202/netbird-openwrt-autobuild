@@ -95,6 +95,7 @@ jobs:
           if [ -d ./feeds/packages/lang/golang ]; then
             rm -rf ./feeds/packages/lang/golang
             git clone --depth=1 -b 25.x https://github.com/sbwml/packages_lang_golang ./feeds/packages/lang/golang
+            sed -i 's/^PKG_HASH:=e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855$/PKG_HASH:=f90dcee4bd023fa376374ea0a5a6ebe553537b39c426ffd8c689469b45519932/' ./feeds/packages/lang/golang/golang/Makefile
           fi
           ./scripts/feeds install -a
 
